@@ -1,4 +1,9 @@
 # Group definitions
+- name: Enable epel because without epel centos is nothing
+  package:
+    name: "epel-release"
+    state: present
+  when: ansible_distribution != "Fedora"
 - name: Install redhat packages coming from group definitions
   package:
           name: "{{ packagesredhat }}"
